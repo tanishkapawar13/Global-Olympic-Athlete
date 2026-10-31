@@ -1,40 +1,36 @@
-Global Olympic Sports Performance Analysis
+# Olympic Tableau Portal (Flask + Render)
 
-Project Overview
+## Files
+•⁠  ⁠⁠ app.py ⁠: Flask server.
+•⁠  ⁠⁠ templates/index.html ⁠: dashboard/story page with two navigation tabs.
+•⁠  ⁠⁠ requirements.txt ⁠: Python dependencies.
+•⁠  ⁠⁠ Procfile ⁠: production start command.
+•⁠  ⁠⁠ render.yaml ⁠: optional Render Blueprint configuration.
 
-The Global Olympic Sports Performance Analysis project focuses on analyzing Olympic data to understand medal-winning performance across countries, athlete participation, and sports categories.
+## Run locally
+⁠ bash
+python -m venv .venv
+source .venv/bin/activate   # macOS/Linux
+pip install -r requirements.txt
+python app.py
+ ⁠
+Open https://global-olympic-athlete.onrender.com/
 
-The project uses Tableau Public to create interactive visualizations, dashboards, and stories that help identify trends and patterns in Olympic performance.
+## Deploy on Render
+1.⁠ ⁠Upload these files to a GitHub repository.
+2.⁠ ⁠In Render, choose New > Web Service and connect the repository.
+3.⁠ ⁠Build command: ⁠ pip install -r requirements.txt ⁠
+4.⁠ ⁠Start command: ⁠ gunicorn app:app ⁠
+5.⁠ ⁠Deploy.
 
-Objectives
+## Configure the Tableau Story
+The dashboard URL was supplied. The exact Story URL is not yet known, so the Story tab shows instructions until you configure it.
+In Render: open your service > Environment > Add Environment Variable:
+•⁠  ⁠Key: ⁠ TABLEAU_STORY_URL ⁠
+•⁠  ⁠Value: the published Tableau Story URL (get it from Tableau Public using Share > Copy Link)
+Save changes and redeploy if prompted.
 
-* Analyze Olympic medal performance across different countries.
-* Compare Gold, Silver, and Bronze medal distributions.
-* Study athlete participation across sports categories.
-* Identify top-performing countries and sports.
-* Explore performance trends across Summer and Winter Olympic Games.
-* Present insights through interactive Tableau visualizations.
+Optional environment variable:
+•⁠  ⁠⁠ TABLEAU_DASHBOARD_URL ⁠: overrides the dashboard URL.
 
-Tools and Technologies
-
-* Tableau Public
-* Microsoft Excel / CSV datasets
-* GitHub
-
-Project Components
-
-* Worksheets: Nine sheets containing data visualizations and analysis.
-* Dashboard: An interactive dashboard presenting key Olympic performance insights.
-* Story: A data-driven story explaining medal distribution and country-level performance.
-
-Key Insights
-
-The visualizations help compare countries based on medal-winning records, understand the distribution of medal types, and identify differences in Olympic performance across sports and participating nations.
-
-Project File
-
-The Tableau packaged workbook is available in this repository as Global Olympic Athlete.twbx.
-
-Conclusion
-
-This project demonstrates how data visualization can transform Olympic datasets into meaningful insights and support data-driven analysis of international sports performance.
+Note: Tableau Public views are public. Only publish data you are comfortable making publicly accessible.
